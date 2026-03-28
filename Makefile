@@ -1,6 +1,9 @@
-all:
-	docker run --rm -it -v "$(pwd)":/app -w /app piscine-project:py310
+all: run
+
+run:
+	docker run --rm -it -v $$PWD:/app -w /app py310 bash
+build:
+	docker build -t py310 .
 
 sys-doc:
 	 sudo systemctl enable --now docker
-
