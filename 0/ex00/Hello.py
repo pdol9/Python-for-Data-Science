@@ -1,11 +1,11 @@
 ft_list = ["Hello", "tata!"]        # -> World
 ft_tuple = ("Hello", "toto!")       # -> France
 ft_set = {"Hello", "tutu!"}         # -> Paris
-ft_dict = {"Hello" : "titi!"}       # -> 42Paris
+ft_dict = {"Hello": "titi!"}       # -> 42Paris
 
-## update data struct
+# -> update data struct
 
-#your list
+# your list
 
 ft_list[1] = 'World'
 
