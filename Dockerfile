@@ -1,10 +1,12 @@
 FROM python:3.10
 
 RUN apt-get update && apt-get install -y vim && \
-	pip install flake8 && \
+	pip install --upgrade pip && \
+	pip install flake8 build tqdm && \
 	echo "alias norminette='flake8'" >> /etc/bash.bashrc && \
 	echo "alias p='python'" >> /etc/bash.bashrc && \
-	echo "alias no='flake8'" >> /etc/bash.bashrc
+	echo "alias no='flake8'" >> /etc/bash.bashrc && \
+	echo 'export PATH="$HOME/.local/bin:$PATH"' >> ~/.bashrc
 
 WORKDIR /app
 
