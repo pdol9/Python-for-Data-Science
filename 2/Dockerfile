@@ -2,7 +2,7 @@ FROM python:3.10
 
 RUN apt-get update && apt-get install -y vim && \
 	pip install --upgrade pip && \
-	pip install flake8 build pandas && \
+	pip install flake8 build pandas matplotlib && \
 	echo "alias norminette='flake8'" >> /etc/bash.bashrc && \
 	echo "alias p='python'" >> /etc/bash.bashrc && \
 	echo "alias no='flake8'" >> /etc/bash.bashrc && \
