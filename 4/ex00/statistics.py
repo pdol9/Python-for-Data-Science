@@ -1,9 +1,11 @@
-def get_mean(num: list):
+def get_mean(num: list, printable=True):
     x = 0
     for n in num:
         x += n
     x = x / len(num)
-    print(f"mean: {x}")
+    if printable is True:
+        print(f"mean: {x}")
+    return x
 
 
 def get_median(num: list, printable=True):
@@ -28,6 +30,30 @@ def get_quartiles(num: list):
     print(f"quartile : [{first_quar}, {third_quar}]")
 
 
+def get_stand_deviation(num: list):
+    """
+    Compute the standard deviation of a sequence of numerical values.
+
+    Standard deviation quantifies the dispersion of data around the
+    mean. A low value indicates that the observations are clustered
+    close to the average, while a high value indicates greater spread.
+    The result is obtained by taking the square root of the variance.
+    """
+    data_points_mean = get_mean(num, False)
+    deviations = []
+    for n in num:
+        deviations.append((n - data_points_mean) ** 2)
+    variance = get_mean(deviations, False)
+    std_dev = variance ** 0.5
+    print(f"std: {std_dev}")
+
+
+def get_variance(num: list):
+    # TODO:
+    x = 0
+    print(f"var: {x}")
+
+
 def ft_statistics(*args: any, **kwargs: any) -> None:
     """
     Compute statistical measures from a variable number of arguments.
@@ -41,20 +67,35 @@ def ft_statistics(*args: any, **kwargs: any) -> None:
     stat_meth = {
             "mean": get_mean,
             "median": get_median,
-            "quartile": get_quartiles
+            "quartile": get_quartiles,
+            "std": get_stand_deviation,
+            "var": get_variance
             }
+
+    # handle invalid input (integer) values
+    if not args:
+        print("ERROR")
+        return
     try:
         for num in args:
             input_values.append(int(num))
-
-        for k, v in kwargs.items():
-            stat_meth.get(v)(input_values)
     except ValueError:
         print("ERROR")
+        return
+
+    try:
+        for k, v in kwargs.items():
+            stat_meth.get(v)(input_values)
+    # if statistical method is not part of stat_meth - move to the next one
+    except (TypeError):
+        pass
 
 
 def main():
     ft_statistics(1, 42, 360, 11, 64, toto="mean", tutu="median", tata="quartile")
+    #ft_statistics(1, "aaa", 42, 360, 11, 64, toto="mean", tutu="median", tata="quartile")
+    #ft_statistics(toto="mean", tutu="median", tata="quartile")
+    #ft_statistics(0,0, 0, 0, 0, 0, toto="mean", tutu="median", tata="quartile")
     #ft_statistics(1,1,2,3,3,3, toto="mean", tutu="median", tata="quartile")
 
 
