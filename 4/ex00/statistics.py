@@ -1,4 +1,10 @@
-def get_mean(num: list, printable=True):
+def get_mean(num: list, printable=True) -> float:
+    """Calculate the mean of the provided dataset.
+
+    Measures the central tendency of the input values by computing
+    their arithmetic average. Returns a single numerical value
+    representing the dataset's typical or central value.
+    """
     x = 0
     for n in num:
         x += n
@@ -8,7 +14,14 @@ def get_mean(num: list, printable=True):
     return x
 
 
-def get_median(num: list, printable=True):
+def get_median(num: list, printable=True) -> float:
+    """Compute the median of a sequence of numerical values.
+
+    The median represents the central value of an ordered dataset.
+    For an odd number of observations, it is the middle element.
+    For an even number of observations, it is the average of the
+    two middle elements.
+    """
     x = 0
     num.sort()
     len_list = len(num)
@@ -22,7 +35,14 @@ def get_median(num: list, printable=True):
     return x
 
 
-def get_quartiles(num: list):
+def get_quartiles(num: list) -> None:
+    """
+    Calculate the first and third quartiles of a dataset.
+
+    Determines the 25th percentile (Q1) and the 75th percentile (Q3)
+    of the ordered data, providing a summary of the distribution's
+    lower and upper ranges.
+    """
     num.sort()
     first_quar_len_list = int(len(num) / 2)
     first_quar = get_median(num[:(first_quar_len_list + 1)], False)
@@ -30,7 +50,7 @@ def get_quartiles(num: list):
     print(f"quartile : [{first_quar}, {third_quar}]")
 
 
-def get_stand_deviation(num: list):
+def get_stand_deviation(data_points: list) -> None:
     """
     Compute the standard deviation of a sequence of numerical values.
 
@@ -39,19 +59,28 @@ def get_stand_deviation(num: list):
     close to the average, while a high value indicates greater spread.
     The result is obtained by taking the square root of the variance.
     """
-    data_points_mean = get_mean(num, False)
-    deviations = []
-    for n in num:
-        deviations.append((n - data_points_mean) ** 2)
-    variance = get_mean(deviations, False)
+    variance = get_variance(data_points, False)
     std_dev = variance ** 0.5
     print(f"std: {std_dev}")
 
 
-def get_variance(num: list):
-    # TODO:
-    x = 0
-    print(f"var: {x}")
+def get_variance(data_points: list, printable=True) -> float:
+    """
+    Compute the variance of a sequence of numerical values.
+
+    Variance measures how far the data points are spread around
+    their mean. It is calculated as the average of the squared
+    differences between each value and the mean. Larger values
+    indicate greater variability within the dataset.
+    """
+    data_points_mean = get_mean(data_points, False)
+    deviations = []
+    for num in data_points:
+        deviations.append((num - data_points_mean) ** 2)
+    variance = get_mean(deviations, False)
+    if printable is True:
+        print(f"var: {variance}")
+    return variance
 
 
 def ft_statistics(*args: any, **kwargs: any) -> None:
