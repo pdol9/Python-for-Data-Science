@@ -18,10 +18,6 @@ ARG GID=1000
 RUN groupadd -g ${GID} ${USERNAME} && \
 	useradd -m -u ${UID} -g ${GID} -s /bin/bash ${USERNAME}
 
-# remove if not needed at any point
-#COPY requirements.txt .
-#RUN pip install --no-cache-dir -r requirements.txt
-
 # ensure app dir is writable by the user (adjust if you bind-mount)
 RUN chown -R ${USERNAME}:${USERNAME} /app
 

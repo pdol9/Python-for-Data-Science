@@ -1,3 +1,6 @@
+from typing import Any
+
+
 def callLimit(limit: int):
     """Create a decorator that limits the number of function calls.
 
@@ -6,6 +9,7 @@ def callLimit(limit: int):
     specified limit is reached, further calls are blocked.
     """
     count = 0
+
     def callLimiter(function):
         """Decorate a function with call-count restrictions.
 

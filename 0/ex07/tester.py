@@ -1,4 +1,3 @@
-import sys
 from sos import sos
 
 
@@ -23,7 +22,7 @@ def main():
         ["prog", "sos"],
         ["prog", "hello 123"],
         ["prog", "what a nice weather"],
-        # fail 
+        # fail
         ["prog", "he%%o"],
         ["prog", "he$o"],
         ["prog", "h @ g A ."],

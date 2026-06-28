@@ -1,4 +1,4 @@
-from load_image import load_image
+from load_image import ft_load
 import matplotlib.pyplot as plt
 import numpy as np
 import cv2
@@ -40,7 +40,7 @@ def zoom(img: np.ndarray) -> None:
 
 if __name__ == "__main__":
     try:
-        img_arr = load_image("animal.jpeg")
+        img_arr = ft_load("animal.jpeg")
         zoomed = zoom(img_arr)
 
     except Exception as e:

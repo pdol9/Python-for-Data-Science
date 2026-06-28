@@ -1,0 +1,6 @@
+Metadata-Version: 2.4
+Name: ft_package
+Version: 0.0.1
+Summary: basic python package
+License-File: LICENSE
+Dynamic: license-file

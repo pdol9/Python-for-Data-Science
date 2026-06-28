@@ -1,5 +1,6 @@
 from typing import Iterable, Any
 
+
 def count_in_list(items: Iterable[Any], value: Any) -> int:
     """
     Return how many times `value` appears in `items`.

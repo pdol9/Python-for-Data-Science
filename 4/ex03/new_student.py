@@ -9,7 +9,7 @@ def generate_id() -> str:
     Creates and returns a string composed of fifteen randomly
     selected lowercase alphabetic characters.
     """
-    return "".join(random.choices(string.ascii_lowercase, k = 15))
+    return "".join(random.choices(string.ascii_lowercase, k=15))
 
 
 @dataclass
@@ -21,11 +21,11 @@ class Student:
     during object initialization.
     """
     # Attributes Declaration
-    name: str = field(init = True)
-    surname: str = field(init = True)
-    active: bool = field(default = True)
-    login: str = field(init = False)
-    id: str = field(init = False)
+    name: str = field(init=True)
+    surname: str = field(init=True)
+    active: bool = field(default=True)
+    login: str = field(init=False)
+    id: str = field(init=False)
 
     def __post_init__(self):
         """Initialize derived student attributes after object creation.

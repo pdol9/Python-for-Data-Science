@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-def load_image(path: str) -> np.ndarray:
+def ft_load(path: str) -> np.ndarray:
     """
     Load an image, print its format and RGB pixel content.
 
@@ -45,4 +45,4 @@ def load_image(path: str) -> np.ndarray:
 
 
 if __name__ == "__main__":
-    load_image("landscape.jpg")
+    ft_load("landscape.jpg")

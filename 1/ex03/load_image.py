@@ -2,7 +2,7 @@ import cv2
 import numpy as np
 
 
-def load_image(path: str) -> np.ndarray:
+def ft_load(path: str) -> np.ndarray:
     """
     Load an image, print its format and RGB pixel content.
 

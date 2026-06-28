@@ -22,7 +22,7 @@ def filterstring(argv):
         invalid = [ch for ch in user_input if not is_valid_char(ch)]
         if invalid:
             raise ValueError("the arguments are bad.")
-        # print those words from input whose length is greater than provided int
+        # print those words from input whose length > than provided int
         is_longer = lambda w: len(w) > num
         long_words = [w for w in user_input.split() if is_longer(w)]
         print(long_words)

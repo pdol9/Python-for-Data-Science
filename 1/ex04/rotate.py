@@ -1,4 +1,4 @@
-from load_image import load_image
+from load_image import ft_load
 import matplotlib.pyplot as plt
 import numpy as np
 
@@ -7,7 +7,7 @@ def rotate_counter_clockwise(img) -> np.ndarray:
     """ Manual rotation of image in counter clockwise direction. """
 
     height, width, channels = img.shape
-    rotated = np.zeros((width, height, channels), dtype = img.dtype)
+    rotated = np.zeros((width, height, channels), dtype=img.dtype)
 
     for y in range(height):
         for x in range(width):
@@ -25,7 +25,7 @@ def crop_img(img: np.ndarray) -> np.ndarray:
 
 if __name__ == "__main__":
     try:
-        img = load_image("animal.jpeg")
+        img = ft_load("animal.jpeg")
         cropped_img = crop_img(img)
         rotated = rotate_counter_clockwise(cropped_img)
         gray = np.mean(rotated, axis=2).astype(np.uint8)
